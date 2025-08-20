@@ -18,12 +18,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   bool _isAdoptAnimationActive = false;
   int _animationKey = 0;
 
-  // --- Completely Revamped Magical Color Themes ---
   final Map<int, Map<String, dynamic>> labubuThemes = {
     0: {
       'name': 'Royal Heirloom',
-      'primary': const Color(0xFFD4AF37), // Soft Gold
-      'secondary': const Color(0xFF5C3D2E), // Espresso
+      'primary': const Color(0xFFD4AF37),
+      'secondary': const Color(0xFF5C3D2E),
       'gradient': [
         const Color(0xFFC8A37C),
         const Color(0xFF5C3D2E),
@@ -33,8 +32,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     },
     1: {
       'name': 'Sunset Denim',
-      'primary': const Color(0xFF6E85B7), // Vintage Denim Blue
-      'secondary': const Color(0xFFFFB6B9), // Sunset Pink
+      'primary': const Color(0xFF6E85B7),
+      'secondary': const Color(0xFFFFB6B9),
       'gradient': [
         const Color(0xFFF7CAC9),
         const Color(0xFF92A8D1),
@@ -44,8 +43,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     },
     2: {
       'name': 'Crimson Ember',
-      'primary': const Color(0xFFE63946), // Vibrant Crimson
-      'secondary': const Color(0xFF6A040F), // Dark Berry
+      'primary': const Color(0xFFE63946),
+      'secondary': const Color(0xFF6A040F),
       'gradient': [
         const Color(0xFF9D0208),
         const Color(0xFFE63946),
@@ -55,26 +54,26 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     },
     3: {
       'name': 'Angelic Aura',
-      'primary': const Color.fromARGB(255, 70, 123, 138), // Soft Lavender
-      'secondary': const Color(0xFF98C1D9), // Gentle Teal
-      'titleSecondaryColor': const Color(0xFF9370DB), // Medium Purple for title
+      'primary': const Color.fromARGB(255, 70, 123, 138),
+      'secondary': const Color(0xFF98C1D9),
+      'titleSecondaryColor': const Color(0xFF9370DB),
       'gradient': [
-        const Color.fromARGB(255, 205, 221, 225), // Light Lilac
-        const Color.fromARGB(255, 182, 202, 215), // Gentle Teal
-        const Color.fromARGB(255, 165, 232, 163), // Soft Lavender
+        const Color.fromARGB(255, 205, 221, 225),
+        const Color.fromARGB(255, 182, 202, 215),
+        const Color.fromARGB(255, 165, 232, 163),
       ],
-      'textColor': const Color(0xFF4B0082), // Indigo
+      'textColor': const Color(0xFF4B0082),
     },
     4: {
       'name': 'Cocoa Dream',
-      'primary': const Color(0xFF8B4513), // Saddle Brown
-      'secondary': const Color(0xFFD2B48C), // Tan
+      'primary': const Color(0xFF8B4513),
+      'secondary': const Color(0xFFD2B48C),
       'gradient': [
-        const Color(0xFF5C4033), // Dark Brown
-        const Color(0xFFD2B48C), // Tan
-        const Color(0xFF8B4513), // Saddle Brown
+        const Color(0xFF5C4033),
+        const Color(0xFFD2B48C),
+        const Color(0xFF8B4513),
       ],
-      'textColor': const Color(0xFFF5F5DC), // Beige
+      'textColor': const Color(0xFFF5F5DC),
     },
   };
 
@@ -85,7 +84,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       if (_pageController.hasClients && _pageController.page != null) {
         if (_pageController.page!.round() != _currentIndex) {
           setState(() {
-            _currentIndex = _pageController.page!.round().clamp(0, labubuThemes.length - 1);
+            _currentIndex = _pageController.page!.round().clamp(
+              0,
+              labubuThemes.length - 1,
+            );
           });
         }
       }
@@ -122,9 +124,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     final theme = _getCurrentTheme();
     final primaryColor = theme['primary'] as Color? ?? Colors.grey;
     final secondaryColor = theme['secondary'] as Color? ?? Colors.grey;
-    final titleSecondaryColor = theme['titleSecondaryColor'] as Color? ?? secondaryColor;
+    final titleSecondaryColor =
+        theme['titleSecondaryColor'] as Color? ?? secondaryColor;
     final textColor = theme['textColor'] as Color? ?? Colors.black;
-    final gradientColors = theme['gradient'] as List<Color>? ?? [Colors.grey, Colors.grey];
+    final gradientColors =
+        theme['gradient'] as List<Color>? ?? [Colors.grey, Colors.grey];
 
     final backgroundGradient = LinearGradient(
       colors: gradientColors.map((c) => c.withOpacity(0.4)).toList(),
@@ -137,32 +141,36 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'Labu',
-              style: GoogleFonts.playfairDisplay(
-                fontSize: isMobile ? 30 : 36,
-                fontWeight: FontWeight.w900,
-                color: _currentIndex == 1 || _currentIndex == 3
-                    ? const Color(0xFF1A2634)
-                    : primaryColor,
-              ),
-            ),
-            const SizedBox(width: 4),
-            Text(
-              'Land',
-              style: GoogleFonts.playfairDisplay(
-                fontSize: isMobile ? 30 : 36,
-                fontWeight: FontWeight.w900,
-                color: _currentIndex == 1 || _currentIndex == 3
-                    ? const Color(0xFFD8BFD8)
-                    : titleSecondaryColor,
-              ),
-            ),
-          ],
-        ).animate().fadeIn(duration: 1000.ms).slideX(begin: -0.2, end: 0, curve: Curves.easeOutBack),
+        title:
+            Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      'Labu',
+                      style: GoogleFonts.playfairDisplay(
+                        fontSize: isMobile ? 30 : 36,
+                        fontWeight: FontWeight.w900,
+                        color: _currentIndex == 1 || _currentIndex == 3
+                            ? const Color(0xFF1A2634)
+                            : primaryColor,
+                      ),
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      'Land',
+                      style: GoogleFonts.playfairDisplay(
+                        fontSize: isMobile ? 30 : 36,
+                        fontWeight: FontWeight.w900,
+                        color: _currentIndex == 1 || _currentIndex == 3
+                            ? const Color(0xFFD8BFD8)
+                            : titleSecondaryColor,
+                      ),
+                    ),
+                  ],
+                )
+                .animate()
+                .fadeIn(duration: 1000.ms)
+                .slideX(begin: -0.2, end: 0, curve: Curves.easeOutBack),
         actions: [
           IconButton(
             icon: Icon(
@@ -209,15 +217,18 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                       children: [
                         const SizedBox(height: 10),
                         Text(
-                          'Explore LabuLand',
-                          style: GoogleFonts.playfairDisplay(
-                            fontSize: isMobile ? 24 : 28,
-                            fontWeight: FontWeight.w700,
-                            color: _currentIndex == 1 || _currentIndex == 3
-                                ? const Color(0xFF1A2634)
-                                : textColor,
-                          ),
-                        ).animate().fadeIn(duration: 800.ms).slideY(
+                              'Explore LabuLand',
+                              style: GoogleFonts.playfairDisplay(
+                                fontSize: isMobile ? 24 : 28,
+                                fontWeight: FontWeight.w700,
+                                color: _currentIndex == 1 || _currentIndex == 3
+                                    ? const Color(0xFF1A2634)
+                                    : textColor,
+                              ),
+                            )
+                            .animate()
+                            .fadeIn(duration: 800.ms)
+                            .slideY(
                               begin: 0.5,
                               end: 0,
                               curve: Curves.easeOutCirc,
@@ -226,54 +237,61 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                         SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
-                            children: ['All', 'Featured', 'Collections', 'Trends']
-                                .asMap()
-                                .entries
-                                .map((entry) {
-                              final category = entry.value;
-                              final isSelected = category == 'All';
-                              return Padding(
-                                padding: const EdgeInsets.only(right: 12),
-                                child: AnimatedContainer(
-                                  duration: const Duration(milliseconds: 300),
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 20,
-                                    vertical: 10,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    gradient: isSelected
-                                        ? LinearGradient(
-                                            colors: [
-                                              primaryColor,
-                                              titleSecondaryColor,
-                                            ],
-                                          )
-                                        : null,
-                                    borderRadius: BorderRadius.circular(25),
-                                    border: Border.all(
-                                      color: primaryColor.withOpacity(0.5),
-                                      width: 1.5,
+                            children:
+                                [
+                                  'All',
+                                  'Featured',
+                                  'Collections',
+                                  'Trends',
+                                ].asMap().entries.map((entry) {
+                                  final category = entry.value;
+                                  final isSelected = category == 'All';
+                                  return Padding(
+                                    padding: const EdgeInsets.only(right: 12),
+                                    child: AnimatedContainer(
+                                      duration: const Duration(
+                                        milliseconds: 300,
+                                      ),
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 20,
+                                        vertical: 10,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        gradient: isSelected
+                                            ? LinearGradient(
+                                                colors: [
+                                                  primaryColor,
+                                                  titleSecondaryColor,
+                                                ],
+                                              )
+                                            : null,
+                                        borderRadius: BorderRadius.circular(25),
+                                        border: Border.all(
+                                          color: primaryColor.withOpacity(0.5),
+                                          width: 1.5,
+                                        ),
+                                        color: isSelected
+                                            ? null
+                                            : Colors.white.withOpacity(0.15),
+                                      ),
+                                      child: Text(
+                                        category,
+                                        style: GoogleFonts.poppins(
+                                          fontWeight: FontWeight.w600,
+                                          color: isSelected
+                                              ? (_currentIndex == 1 ||
+                                                        _currentIndex == 3
+                                                    ? const Color(0xFF1A2634)
+                                                    : textColor)
+                                              : (_currentIndex == 1 ||
+                                                        _currentIndex == 3
+                                                    ? const Color(0xFF1A2634)
+                                                    : textColor),
+                                        ),
+                                      ),
                                     ),
-                                    color: isSelected
-                                        ? null
-                                        : Colors.white.withOpacity(0.15),
-                                  ),
-                                  child: Text(
-                                    category,
-                                    style: GoogleFonts.poppins(
-                                      fontWeight: FontWeight.w600,
-                                      color: isSelected
-                                          ? (_currentIndex == 1 || _currentIndex == 3
-                                              ? const Color(0xFF1A2634)
-                                              : textColor)
-                                          : (_currentIndex == 1 || _currentIndex == 3
-                                              ? const Color(0xFF1A2634)
-                                              : textColor),
-                                    ),
-                                  ),
-                                ),
-                              );
-                            }).toList(),
+                                  );
+                                }).toList(),
                           ),
                         ),
                       ],
@@ -287,15 +305,23 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             itemCount: labubuDolls.length,
                             itemBuilder: (context, index) {
                               if (index >= labubuThemes.length) {
-                                return const SizedBox.shrink(); // Skip invalid indices
+                                return const SizedBox.shrink();
                               }
                               final doll = labubuDolls[index];
                               final dollTheme = labubuThemes[index]!;
-                              final dollPrimary = dollTheme['primary'] as Color? ?? Colors.grey;
-                              final dollSecondary = dollTheme['secondary'] as Color? ?? Colors.grey;
-                              final dollText = dollTheme['textColor'] as Color? ?? Colors.black;
-                              final dollGradient = dollTheme['gradient'] as List<Color>? ?? [Colors.grey, Colors.grey];
-                              final dollName = dollTheme['name'] as String? ?? 'Unknown';
+                              final dollPrimary =
+                                  dollTheme['primary'] as Color? ?? Colors.grey;
+                              final dollSecondary =
+                                  dollTheme['secondary'] as Color? ??
+                                  Colors.grey;
+                              final dollText =
+                                  dollTheme['textColor'] as Color? ??
+                                  Colors.black;
+                              final dollGradient =
+                                  dollTheme['gradient'] as List<Color>? ??
+                                  [Colors.grey, Colors.grey];
+                              final dollName =
+                                  dollTheme['name'] as String? ?? 'Unknown';
 
                               return AnimatedBuilder(
                                 animation: _pageController,
@@ -304,15 +330,20 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                   if (_pageController.position.haveDimensions) {
                                     pageOffset = _pageController.page! - index;
                                   }
-                                  double scale = (1 - (pageOffset.abs() * 0.2)).clamp(0.8, 1.0);
-                                  return Transform.scale(scale: scale, child: child);
+                                  double scale = (1 - (pageOffset.abs() * 0.2))
+                                      .clamp(0.8, 1.0);
+                                  return Transform.scale(
+                                    scale: scale,
+                                    child: child,
+                                  );
                                 },
                                 child: GestureDetector(
                                   onTap: () {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => DollDetailScreen(doll: doll),
+                                        builder: (context) =>
+                                            DollDetailScreen(doll: doll),
                                       ),
                                     );
                                   },
@@ -343,20 +374,36 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                         children: [
                                           Expanded(
                                             flex: 5,
-                                            child: Hero(
-                                              tag: 'doll_${doll.id}',
-                                              child: Image.asset(
-                                                doll.imageUrl,
-                                                fit: BoxFit.contain,
-                                                errorBuilder: (context, error, stackTrace) {
-                                                  return const Icon(Icons.error, color: Colors.red);
-                                                },
-                                              ),
-                                            ).animate().fadeIn(duration: 1200.ms).scale(curve: Curves.easeOutBack),
+                                            child:
+                                                Hero(
+                                                      tag: 'doll_${doll.id}',
+                                                      child: Image.asset(
+                                                        doll.imageUrl,
+                                                        fit: BoxFit.contain,
+                                                        errorBuilder:
+                                                            (
+                                                              context,
+                                                              error,
+                                                              stackTrace,
+                                                            ) {
+                                                              return const Icon(
+                                                                Icons.error,
+                                                                color:
+                                                                    Colors.red,
+                                                              );
+                                                            },
+                                                      ),
+                                                    )
+                                                    .animate()
+                                                    .fadeIn(duration: 1200.ms)
+                                                    .scale(
+                                                      curve: Curves.easeOutBack,
+                                                    ),
                                           ),
                                           const SizedBox(height: 16),
                                           Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
                                               FittedBox(
                                                 fit: BoxFit.scaleDown,
@@ -366,8 +413,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                                   style: GoogleFonts.poppins(
                                                     fontSize: 24,
                                                     fontWeight: FontWeight.w700,
-                                                    color: index == 1 || index == 3
-                                                        ? const Color(0xFF1A2634)
+                                                    color:
+                                                        index == 1 || index == 3
+                                                        ? const Color(
+                                                            0xFF1A2634,
+                                                          )
                                                         : dollText,
                                                   ),
                                                 ),
@@ -378,9 +428,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                                 style: GoogleFonts.poppins(
                                                   fontSize: 20,
                                                   fontWeight: FontWeight.w600,
-                                                  color: index == 1 || index == 3
+                                                  color:
+                                                      index == 1 || index == 3
                                                       ? const Color(0xFF1A2634)
-                                                      : dollText.withOpacity(0.8),
+                                                      : dollText.withOpacity(
+                                                          0.8,
+                                                        ),
                                                 ),
                                               ),
                                               const SizedBox(height: 20),
@@ -396,35 +449,48 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                                                         dollPrimary,
                                                       ],
                                                     ),
-                                                    borderRadius: BorderRadius.circular(25),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                          25,
+                                                        ),
                                                     boxShadow: [
                                                       BoxShadow(
-                                                        color: dollPrimary.withOpacity(0.5),
+                                                        color: dollPrimary
+                                                            .withOpacity(0.5),
                                                         blurRadius: 10,
-                                                        offset: const Offset(0, 5),
+                                                        offset: const Offset(
+                                                          0,
+                                                          5,
+                                                        ),
                                                       ),
                                                     ],
                                                   ),
                                                   child: Center(
                                                     child: Text(
                                                       'Adopt a Labubu ♡',
-                                                      style: GoogleFonts.poppins(
-                                                        fontSize: 16,
-                                                        fontWeight: FontWeight.w600,
-                                                        color: index == 1 || index == 3
-                                                            ? const Color(0xFF1A2634)
-                                                            : dollText,
-                                                      ),
+                                                      style:
+                                                          GoogleFonts.poppins(
+                                                            fontSize: 16,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            color:
+                                                                index == 1 ||
+                                                                    index == 3
+                                                                ? const Color(
+                                                                    0xFF1A2634,
+                                                                  )
+                                                                : dollText,
+                                                          ),
                                                     ),
                                                   ),
                                                 ),
                                               ).animate().slideY(
-                                                    begin: 0.5,
-                                                    end: 0,
-                                                    delay: 300.ms,
-                                                    duration: 600.ms,
-                                                    curve: Curves.easeOutCirc,
-                                                  ),
+                                                begin: 0.5,
+                                                end: 0,
+                                                delay: 300.ms,
+                                                duration: 600.ms,
+                                                curve: Curves.easeOutCirc,
+                                              ),
                                             ],
                                           ),
                                         ],

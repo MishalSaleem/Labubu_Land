@@ -14,7 +14,7 @@ class PageTransitionEffect extends StatelessWidget {
   Widget build(BuildContext context) {
     return Transform(
       transform: Matrix4.identity()
-        ..setEntry(3, 2, 0.001) // Perspective
+        ..setEntry(3, 2, 0.001) 
         ..rotateY(position * 0.5)
         ..translate(position * 200, 0, 0),
       alignment: FractionalOffset.center,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // Import labubuDolls if it's defined in another file, or define it here if not imported
-import '../data/labubu_dolls.dart'; // <-- Add this line if labubuDolls is exported from this file
+import '../data/labubu_dolls.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -53,7 +53,7 @@ class AppDrawer extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
-          // Generate menu items for each doll
+
           ...labubuDolls.map((doll) {
             return ListTile(
               leading: CircleAvatar(
@@ -63,7 +63,7 @@ class AppDrawer extends StatelessWidget {
               title: Text(doll.name),
               onTap: () {
                 Navigator.pop(context);
-                // Show snackbar for now, can implement navigation later
+
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text('${doll.name} selected!'),

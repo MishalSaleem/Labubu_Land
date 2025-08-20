@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
-    // Navigate to HomeScreen after 3.5 seconds with a smooth transition
+
     Future.delayed(const Duration(milliseconds: 3500), () {
       if (mounted) {
         Navigator.of(context).pushReplacement(
@@ -46,7 +46,6 @@ class _SplashScreenState extends State<SplashScreen>
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -58,7 +57,6 @@ class _SplashScreenState extends State<SplashScreen>
     ); // Responsive circle
     final innerCircleSize = circleSize - 15 * scaleFactor;
 
-    // Royal Heirloom theme for seamless transition to brown Labubu
     final theme = {
       'primary': const Color(0xFFD4AF37), // Soft Gold
       'secondary': const Color(0xFF5C3D2E), // Espresso
@@ -81,7 +79,6 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
       body: Stack(
         children: [
-          // Subtle background pattern consistent with HomeScreen
           Positioned.fill(
             child: CustomPaint(
               painter: BackgroundPatternPainter(
@@ -97,7 +94,6 @@ class _SplashScreenState extends State<SplashScreen>
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // Circular Labubu image with refined animation
                   Container(
                         width: circleSize,
                         height: circleSize,
@@ -148,7 +144,7 @@ class _SplashScreenState extends State<SplashScreen>
                         color: (theme['primary'] as Color).withOpacity(0.4),
                       ),
                   SizedBox(height: 32 * scaleFactor),
-                  // Elegant app name
+
                   Text(
                         'LabuLand',
                         style: GoogleFonts.playfairDisplay(
@@ -178,7 +174,7 @@ class _SplashScreenState extends State<SplashScreen>
                         curve: Curves.easeOutQuint,
                       ),
                   SizedBox(height: 16 * scaleFactor),
-                  // Subtle tagline
+
                   Text(
                         'Discover the Charm of Labubu',
                         textAlign: TextAlign.center,
@@ -202,7 +198,7 @@ class _SplashScreenState extends State<SplashScreen>
                         curve: Curves.easeOutBack,
                       ),
                   SizedBox(height: 32 * scaleFactor),
-                  // Minimalist loading indicator
+
                   Container(
                         width: 50 * scaleFactor,
                         height: 50 * scaleFactor,

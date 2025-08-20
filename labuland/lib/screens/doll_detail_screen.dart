@@ -17,62 +17,61 @@ class _DollDetailScreenState extends State<DollDetailScreen> {
   String _selectedSize = 'Small';
   bool _isAdoptAnimationActive = false;
 
-  // --- Completely Revamped Magical Color Themes (matched from home screen) ---
   final Map<int, Map<String, dynamic>> labubuThemes = {
     0: {
       'name': 'Royal Heirloom',
-      'primary': const Color.fromARGB(255, 135, 119, 68), // Soft Gold
-      'secondary': const Color(0xFF5C3D2E), // Espresso
+      'primary': const Color.fromARGB(255, 135, 119, 68),
+      'secondary': const Color(0xFF5C3D2E),
       'gradient': [
         const Color(0xFFC8A37C),
         const Color(0xFF5C3D2E),
         const Color(0xFF4A2A0C),
       ],
-      'textColor': const Color(0xFF2F2F2F), // Dark Gray
+      'textColor': const Color(0xFF2F2F2F),
     },
     1: {
       'name': 'Sunset Denim',
-      'primary': const Color(0xFF6E85B7), // Vintage Denim Blue
-      'secondary': const Color(0xFFFFB6B9), // Sunset Pink
+      'primary': const Color(0xFF6E85B7),
+      'secondary': const Color(0xFFFFB6B9),
       'gradient': [
         const Color(0xFFF7CAC9),
         const Color(0xFF92A8D1),
         const Color(0xFF6E85B7),
       ],
-      'textColor': const Color(0xFF2C3E50), // Midnight Blue
+      'textColor': const Color(0xFF2C3E50),
     },
     2: {
       'name': 'Crimson Ember',
-      'primary': const Color(0xFFE63946), // Vibrant Crimson
-      'secondary': const Color(0xFF6A040F), // Dark Berry
+      'primary': const Color(0xFFE63946),
+      'secondary': const Color(0xFF6A040F),
       'gradient': [
         const Color(0xFF9D0208),
         const Color(0xFFE63946),
         const Color(0xFF370617),
       ],
-      'textColor': const Color(0xFF2F2F2F), // Dark Gray
+      'textColor': const Color(0xFF2F2F2F),
     },
     3: {
       'name': 'Angelic Aura',
-      'primary': const Color.fromARGB(255, 70, 123, 138), // Soft Lavender
-      'secondary': const Color(0xFF98C1D9), // Gentle Teal
+      'primary': const Color.fromARGB(255, 70, 123, 138),
+      'secondary': const Color(0xFF98C1D9),
       'gradient': [
-        const Color.fromARGB(255, 205, 221, 225), // Light Lilac
-        const Color.fromARGB(255, 182, 202, 215), // Gentle Teal
-        const Color.fromARGB(255, 165, 232, 163), // Soft Lavender
+        const Color.fromARGB(255, 205, 221, 225),
+        const Color.fromARGB(255, 182, 202, 215),
+        const Color.fromARGB(255, 165, 232, 163),
       ],
-      'textColor': const Color(0xFF4B0082), // Indigo
+      'textColor': const Color(0xFF4B0082),
     },
     4: {
       'name': 'Cocoa Dream',
-      'primary': const Color(0xFFC49A6C), // Creamy Caramel
-      'secondary': const Color(0xFF7B3F00), // Warm Cocoa
+      'primary': const Color(0xFFC49A6C),
+      'secondary': const Color(0xFF7B3F00),
       'gradient': [
         const Color(0xFF5E412F),
         const Color(0xFFC49A6C),
         const Color(0xFF7B3F00),
       ],
-      'textColor': const Color(0xFF2F2F2F), // Dark Gray
+      'textColor': const Color(0xFF2F2F2F),
     },
   };
 
@@ -218,7 +217,6 @@ class _DollDetailScreenState extends State<DollDetailScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Image Section with original rotation animation
                       Center(
                         child: SizedBox(
                           width: isMobile ? double.infinity : 400,
@@ -249,7 +247,7 @@ class _DollDetailScreenState extends State<DollDetailScreen> {
                         ),
                       ),
                       SizedBox(height: isMobile ? 24 : 32),
-                      // Clean Content Section
+
                       Text(
                             dollName,
                             style: GoogleFonts.playfairDisplay(
@@ -265,24 +263,19 @@ class _DollDetailScreenState extends State<DollDetailScreen> {
                       Text(
                         '\$${widget.doll.price.toStringAsFixed(2)}',
                         style: GoogleFonts.poppins(
-                          fontSize: isMobile
-                              ? 22
-                              : 30, // Increased for readability
+                          fontSize: isMobile ? 22 : 30,
                           fontWeight: FontWeight.w700,
                           color: dollId == 0
                               ? const Color(0xFF2F2F2F)
-                              : primaryColor, // Changed for Royal Heirloom
+                              : primaryColor,
                         ),
                       ).animate().fadeIn(delay: 200.ms, duration: 500.ms),
                       SizedBox(height: isMobile ? 12 : 16),
                       Text(
                             description,
                             style: GoogleFonts.poppins(
-                              fontSize: isMobile
-                                  ? 16
-                                  : 20, // Increased for readability
-                              fontWeight:
-                                  FontWeight.w500, // Adjusted for clarity
+                              fontSize: isMobile ? 16 : 20,
+                              fontWeight: FontWeight.w500,
                               color: textColor.withOpacity(0.85),
                               height: 1.5,
                             ),
@@ -294,9 +287,7 @@ class _DollDetailScreenState extends State<DollDetailScreen> {
                       Text(
                         'Size',
                         style: GoogleFonts.poppins(
-                          fontSize: isMobile
-                              ? 18
-                              : 22, // Increased for readability
+                          fontSize: isMobile ? 18 : 22,
                           fontWeight: FontWeight.w600,
                           color: textColor,
                         ),

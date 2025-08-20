@@ -42,8 +42,7 @@ class DollCard extends StatelessWidget {
                     ),
                   ),
                   padding: const EdgeInsets.all(20),
-                  // This will be a placeholder until real images are provided
-                  // Using a placeholder icon instead of Image.asset to avoid errors
+
                   child:
                       Center(
                             child: Icon(
