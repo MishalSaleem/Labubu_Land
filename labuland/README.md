@@ -61,13 +61,17 @@ You can customize the app by:
 
 ## Screenshots
 
--Splash Screen
+## Splash Screen
 <img width="265" height="580" alt="image" src="https://github.com/user-attachments/assets/501c48b0-3152-47b8-95b4-d0721f822aa2" />
 
--Home Screen
+## Home Screen
 <img width="270" height="581" alt="Screenshot 2025-08-21 020904" src="https://github.com/user-attachments/assets/a9bc568d-686a-445a-8369-307c32fa589f" />
+<img width="265" height="582" alt="image" src="https://github.com/user-attachments/assets/938485ed-066e-4b27-8f96-25112a70ffc9" />
+<img width="268" height="581" alt="image" src="https://github.com/user-attachments/assets/4145e9dd-893a-4ac3-a442-bfec3141a01e" />
+<img width="273" height="586" alt="image" src="https://github.com/user-attachments/assets/e6bdf4a8-330e-48c7-84d7-a044a46772f3" />
+<img width="267" height="579" alt="image" src="https://github.com/user-attachments/assets/b56ac4aa-922e-47c4-ad12-86fb849071ae" />
 
--Details Screen
+## Details Screen
 <img width="267" height="579" alt="image" src="https://github.com/user-attachments/assets/e6bc38c4-e1cf-414c-89f2-be1fdaef6e74" />
 <img width="262" height="587" alt="image" src="https://github.com/user-attachments/assets/889119ba-f1d5-40f2-ab00-8f7451fed9ec" />
 <img width="269" height="581" alt="image" src="https://github.com/user-attachments/assets/644deac3-d73c-4afe-8327-fd5a6b70fcce" />
